@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import safari from "@/images/vector.svg";
-import { Buildings, Check, Airplane, House, Car, ChatTeardropDots } from '@phosphor-icons/react';
+import { Buildings, Check, Airplane, House, Car, ChatTeardropDots } from '@phosphor-icons/react/dist/ssr';
 import React from 'react';
 
 // Define TypeScript interfaces for component props
