@@ -4,6 +4,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import safari from "@/images/vector.svg";
+import {
+  BuildingOffice2Icon,
+  CheckIcon,
+  PaperAirplaneIcon,
+  HomeIcon,
+  InformationCircleIcon,
+  ChatBubbleLeftRightIcon,
+} from "@heroicons/react/24/outline";
 
 // Define TypeScript interfaces for component props
 interface SafariCardProps {
@@ -25,56 +33,96 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative py-16 md:py-24"
-        style={{
-          backgroundImage: "url('/images/ele.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "540px",
-        }}
-      >
-        <div className="relative container mx-auto text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg text-black">
-            Explore Kenya & Tanzania Safaris
-          </h1>
-          <p className="text-lg mb-6 drop-shadow-md text-black">
-            Book unforgettable safaris and tours across East Africa’s wild heartlands.
-          </p>
-          <div className="max-w-3xl mx-auto">
-            <div className="relative">
-              <Input
-                type="text"
-                placeholder="Search safaris, tours, or destinations in Kenya & Tanzania..."
-                className="h-14 w-full pl-10 text-lg bg-white bg-opacity-90 rounded-full"
-              />
-              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-gray-500"
-                >
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-              </div>
-              <Button
-                variant="default"
-                size="sm"
-                className="absolute inset-y-1.5 right-2 flex items-center justify-center h-11 px-4 text-sm bg-black hover:bg-gray-700 border border-white rounded-full"
+      className="relative py-16 md:py-24"
+      style={{
+        backgroundImage: "url('/images/ele.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "540px",
+      }}
+    >
+      <div className="relative container mx-auto text-center text-white">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg text-black">
+          Explore Kenya & Tanzania Safaris
+        </h1>
+        <p className="text-lg mb-6 drop-shadow-md text-black">
+          Book unforgettable safaris and tours across East Africa’s wild heartlands.
+        </p>
+        <div className="max-w-3xl mx-auto">
+          {/* Navigation Links */}
+          <nav className="hidden md:flex justify-center items-center space-x-6 mb-6">
+            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+              <Link href="/hotels" className="flex items-center space-x-2">
+                <BuildingOffice2Icon className="w-5 h-5" />
+                <span>Hotels</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+              <Link href="/things-to-do" className="flex items-center space-x-2">
+                <CheckIcon className="w-5 h-5" />
+                <span>Things to Do</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+              <Link href="/flights" className="flex items-center space-x-2">
+                < PaperAirplaneIcon className="w-5 h-5" />
+                <span>Flights</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+              <Link href="/vacation-rentals" className="flex items-center space-x-2">
+                <HomeIcon className="w-5 h-5" />
+                <span>Vacation Rentals</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+              <Link href="/rental-cars" className="flex items-center space-x-2">
+                <InformationCircleIcon className="w-5 h-5" />
+                <span>Rental Cars</span>
+              </Link>
+            </Button>
+            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+              <Link href="/forums" className="flex items-center space-x-2">
+                <ChatBubbleLeftRightIcon className="w-5 h-5" />
+                <span>Visa Help</span>
+              </Link>
+            </Button>
+          </nav>
+          {/* Search Input */}
+          <div className="relative">
+            <Input
+              type="text"
+              placeholder="Search safaris, tours, or destinations in Kenya & Tanzania..."
+              className="h-14 w-full pl-10 text-lg bg-white bg-opacity-90 rounded-full"
+            />
+            <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-gray-500"
               >
-                Search
-              </Button>
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
             </div>
+            <Button
+              variant="default"
+              size="sm"
+              className="absolute inset-y-1.5 right-2 flex items-center justify-center h-11 px-4 text-sm bg-black hover:bg-gray-700 border border-white rounded-full"
+            >
+              Search
+            </Button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Plan Your Safari Section */}
       <section className="py-12 bg-green-50">
