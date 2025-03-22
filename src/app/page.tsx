@@ -50,7 +50,7 @@ export default function Home() {
         </p>
         <div className="max-w-3xl mx-auto">
           {/* Navigation Links */}
-          <nav className="flex md:hidden justify-center items-center space-x-6 mb-6">
+          <nav className="flex md:hidden items-center space-x-6 mb-6 overflow-x-auto flex-nowrap px-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
   <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
     <Link href="/hotels" className="flex items-center space-x-2">
       <BuildingOffice2Icon className="w-5 h-5" />
