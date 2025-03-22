@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import safari from "@/images/vector.svg";
 import { Buildings, Check, Airplane, House, Car, ChatTeardropDots } from '@phosphor-icons/react';
+import React from 'react';
 
 // Define TypeScript interfaces for component props
 interface SafariCardProps {
