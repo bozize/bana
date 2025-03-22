@@ -75,13 +75,13 @@ export default function Home() {
       <span>Vacation Rentals</span>
     </Link>
   </Button>
-  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+  <Button variant="ghost" className="text-white font-medium hover:bg-white/20 rounded-full transition-colors">
     <Link href="/rental-cars" className="flex items-center space-x-2">
       <InformationCircleIcon className="w-5 h-5" />
       <span>Rental Cars</span>
     </Link>
   </Button>
-  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+  <Button variant="ghost" className="text-white font-medium hover:bg-white/20 rounded-full transition-colors">
     <Link href="/forums" className="flex items-center space-x-2">
       <ChatBubbleLeftRightIcon className="w-5 h-5" />
       <span>Visa Help</span>
