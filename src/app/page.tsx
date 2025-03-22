@@ -2,7 +2,23 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
+import Image from "next/image";
 import safari from "@/images/vector.svg";
+
+// Define TypeScript interfaces for component props
+interface SafariCardProps {
+  image: string;
+  title: string;
+}
+
+interface ExperienceCardProps {
+  image: string;
+  title: string;
+  rating: number;
+  reviews: number;
+  price: number;
+  isBestSeller?: boolean;
+}
 
 export default function Home() {
   return (
@@ -11,54 +27,52 @@ export default function Home() {
       <section
         className="relative py-16 md:py-24"
         style={{
-          backgroundImage: "url('/images/ele.jpg')",// East African safari background
+          backgroundImage: "url('/images/ele.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "540px",
         }}
       >
         <div className="relative container mx-auto text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg  text-black">
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg text-black">
             Explore Kenya & Tanzania Safaris
           </h1>
           <p className="text-lg mb-6 drop-shadow-md text-black">
             Book unforgettable safaris and tours across East Africa’s wild heartlands.
           </p>
           <div className="max-w-3xl mx-auto">
-  <div className="relative">
-    <Input
-      type="text"
-      placeholder="Search safaris, tours, or destinations in Kenya & Tanzania..."
-      className="h-14 w-full pl-10 text-lg bg-white bg-opacity-90 rounded-full"
-    />
-    <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-gray-500"
-      >
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    </div>
-    <Button
-      variant="default"
-      size="sm"
-      className="absolute inset-y-1.5 right-2 flex items-center justify-center h-11 px-4 text-sm bg-black hover:bg-gray-700 border border-white rounded-full"
-    >
-      Search
-    </Button>
-  </div>
-</div>
-
-
+            <div className="relative">
+              <Input
+                type="text"
+                placeholder="Search safaris, tours, or destinations in Kenya & Tanzania..."
+                className="h-14 w-full pl-10 text-lg bg-white bg-opacity-90 rounded-full"
+              />
+              <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-500"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <Button
+                variant="default"
+                size="sm"
+                className="absolute inset-y-1.5 right-2 flex items-center justify-center h-11 px-4 text-sm bg-black hover:bg-gray-700 border border-white rounded-full"
+              >
+                Search
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -79,10 +93,12 @@ export default function Home() {
                 </Button>
               </div>
               <div className="md:w-1/2 p-6 md:p-0 flex items-center justify-center">
-                <img
-                  src="https://images.unsplash.com/photo-1519659528534-7fd733a832a0?maasai-mara" // Maasai Mara image
+                <Image
+                  src="https://images.unsplash.com/photo-1519659528534-7fd733a832a0?maasai-mara"
                   alt="East African Safari"
-                  className="rounded-lg md:rounded-none h-full w-full object-cover"
+                  width={600}
+                  height={400}
+                  className="rounded-lg md:rounded-none object-cover"
                 />
               </div>
             </div>
@@ -173,10 +189,12 @@ export default function Home() {
               </Button>
             </div>
             <div className="md:w-1/3 p-6 flex items-center justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1559666126-9949683b4bf4?safari-guide" // Safari guide image
+              <Image
+                src="https://images.unsplash.com/photo-1559666126-9949683b4bf4?safari-guide"
                 alt="Safari Guide"
-                className="h-40 object-cover rounded-lg"
+                width={160}
+                height={160}
+                className="object-cover rounded-lg"
               />
             </div>
           </div>
@@ -184,78 +202,91 @@ export default function Home() {
       </section>
     </div>
   );
-}
 
-// Safari Card Component
-function SafariCard({ image, title }) {
-  return (
-    <Link href="#" className="block">
-      <div className="relative rounded-lg overflow-hidden h-48 group">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-          <h3 className="text-white font-bold">{title}</h3>
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-// Experience Card Component
-function ExperienceCard({ image, title, rating, reviews, price, isBestSeller = false }) {
-  return (
-    <Card className="overflow-hidden h-full">
+  // Safari Card Component
+  function SafariCard({ image, title }: SafariCardProps) {
+    return (
       <Link href="#" className="block">
-        <div className="relative h-48">
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-          {isBestSeller && (
-            <div className="absolute top-2 left-2 bg-amber-500 text-black font-bold text-xs px-2 py-1 rounded">
-              Best Seller
-            </div>
-          )}
-          <button className="absolute top-2 right-2 bg-white rounded-full p-1.5">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
-            </svg>
-          </button>
+        <div className="relative rounded-lg overflow-hidden h-48 group">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+            <h3 className="text-white font-bold">{title}</h3>
+          </div>
         </div>
       </Link>
-      <CardContent className="p-4">
-        <h3 className="font-bold text-sm mb-2 line-clamp-2">{title}</h3>
-        <div className="flex items-center mb-1">
-          <div className="flex">
-            {[...Array(5)].map((_, i) => (
+    );
+  }
+
+  // Experience Card Component
+  function ExperienceCard({ 
+    image, 
+    title, 
+    rating, 
+    reviews, 
+    price, 
+    isBestSeller = false 
+  }: ExperienceCardProps) {
+    return (
+      <Card className="overflow-hidden h-full">
+        <Link href="#" className="block">
+          <div className="relative h-48">
+            <Image 
+              src={image} 
+              alt={title} 
+              fill
+              className="object-cover"
+            />
+            {isBestSeller && (
+              <div className="absolute top-2 left-2 bg-amber-500 text-black font-bold text-xs px-2 py-1 rounded">
+                Best Seller
+              </div>
+            )}
+            <button className="absolute top-2 right-2 bg-white rounded-full p-1.5">
               <svg
-                key={i}
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
-                fill={i < Math.floor(rating) ? "#00aa6c" : "none"}
-                stroke="#00aa6c"
-                className="mr-0.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
               </svg>
-            ))}
+            </button>
           </div>
-          <span className="text-xs text-gray-600 ml-1">{reviews.toLocaleString()}</span>
-        </div>
-        <p className="text-sm">from ${price} per person</p>
-      </CardContent>
-    </Card>
-  );
+        </Link>
+        <CardContent className="p-4">
+          <h3 className="font-bold text-sm mb-2 line-clamp-2">{title}</h3>
+          <div className="flex items-center mb-1">
+            <div className="flex">
+              {[...Array(5)].map((_, i) => (
+                <svg
+                  key={i}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill={i < Math.floor(rating) ? "#00aa6c" : "none"}
+                  stroke="#00aa6c"
+                  className="mr-0.5"
+                >
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              ))}
+            </div>
+            <span className="text-xs text-gray-600 ml-1">{reviews.toLocaleString()}</span>
+          </div>
+          <p className="text-sm">from ${price} per person</p>
+        </CardContent>
+      </Card>
+    );
+  }
 }
