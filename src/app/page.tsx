@@ -50,44 +50,44 @@ export default function Home() {
         </p>
         <div className="max-w-3xl mx-auto">
           {/* Navigation Links */}
-          <nav className="hidden md:flex justify-center items-center space-x-6 mb-6">
-            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
-              <Link href="/hotels" className="flex items-center space-x-2">
-                <BuildingOffice2Icon className="w-5 h-5" />
-                <span>Hotels</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
-              <Link href="/things-to-do" className="flex items-center space-x-2">
-                <CheckIcon className="w-5 h-5" />
-                <span>Things to Do</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
-              <Link href="/flights" className="flex items-center space-x-2">
-                < PaperAirplaneIcon className="w-5 h-5" />
-                <span>Flights</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
-              <Link href="/vacation-rentals" className="flex items-center space-x-2">
-                <HomeIcon className="w-5 h-5" />
-                <span>Vacation Rentals</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
-              <Link href="/rental-cars" className="flex items-center space-x-2">
-                <InformationCircleIcon className="w-5 h-5" />
-                <span>Rental Cars</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
-              <Link href="/forums" className="flex items-center space-x-2">
-                <ChatBubbleLeftRightIcon className="w-5 h-5" />
-                <span>Visa Help</span>
-              </Link>
-            </Button>
-          </nav>
+          <nav className="flex md:hidden justify-center items-center space-x-6 mb-6">
+  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+    <Link href="/hotels" className="flex items-center space-x-2">
+      <BuildingOffice2Icon className="w-5 h-5" />
+      <span>Hotels</span>
+    </Link>
+  </Button>
+  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+    <Link href="/things-to-do" className="flex items-center space-x-2">
+      <CheckIcon className="w-5 h-5" />
+      <span>Things to Do</span>
+    </Link>
+  </Button>
+  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+    <Link href="/flights" className="flex items-center space-x-2">
+      <PaperAirplaneIcon className="w-5 h-5" />
+      <span>Flights</span>
+    </Link>
+  </Button>
+  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+    <Link href="/vacation-rentals" className="flex items-center space-x-2">
+      <HomeIcon className="w-5 h-5" />
+      <span>Vacation Rentals</span>
+    </Link>
+  </Button>
+  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+    <Link href="/rental-cars" className="flex items-center space-x-2">
+      <InformationCircleIcon className="w-5 h-5" />
+      <span>Rental Cars</span>
+    </Link>
+  </Button>
+  <Button variant="ghost" className="text-black font-medium hover:bg-white/20 rounded-full transition-colors">
+    <Link href="/forums" className="flex items-center space-x-2">
+      <ChatBubbleLeftRightIcon className="w-5 h-5" />
+      <span>Visa Help</span>
+    </Link>
+  </Button>
+</nav>
           {/* Search Input */}
           <div className="relative">
             <Input
