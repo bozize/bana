@@ -1,11 +1,13 @@
+import { NextResponse } from "next/server";
 import { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://serenigo.com"; // Fix extra ".com"
-  const pagesDir = path.join(process.cwd(), "app"); // Path to Next.js app directory
+export async function GET(): Promise<NextResponse> {
+  const baseUrl = "https://serenigo.com"; // Your actual domain
+  const pagesDir = path.join(process.cwd(), "app");
 
+  // Recursively get all pages
   function getPages(dir: string, basePath = ""): string[] {
     let pages: string[] = [];
 
@@ -14,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const isDirectory = fs.statSync(fullPath).isDirectory();
 
       if (isDirectory) {
-        // Skip special Next.js folders like `(components)`, `(layouts)`, etc.
+        // Skip special folders (like _app, _document)
         if (!file.startsWith("(") && !file.startsWith("_")) {
           pages = [...pages, ...getPages(fullPath, `${basePath}/${file}`)];
         }
@@ -27,13 +29,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   // Get all pages dynamically
-  const routes: MetadataRoute.Sitemap = getPages(pagesDir).map((route) => ({
+  const routes = getPages(pagesDir).map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
-    changeFrequency: "weekly" as const, // ✅ Fix: Use `as const`
+    changeFrequency: "weekly" as const, // Ensure this is a valid type
     priority: 0.7,
   }));
 
-  return routes;
+  // Return sitemap as XML (you can adjust the response format as needed)
+  return NextResponse.json(routes); // Or you could format it as XML here
 }
 
