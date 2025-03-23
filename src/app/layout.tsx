@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description:
     "Discover breathtaking safaris and unforgettable tours in Kenya and Tanzania with SereniGo. Plan your adventure, explore top-rated national parks, book guided tours, and experience African wildlife like never before.",
   icons: {
-    icon: [{ url: "/fav.png" }], // Updated to reflect the path inside public folder
-    apple: [{ url: "/fav.png" }],
+    icon: [{ url: "/images/fav.png" }], // Corrected path
+    apple: [{ url: "/images/fav.png" }], // Corrected path
   },
 };
 
@@ -21,8 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/fav.png" /> {/* Updated to match path */}
-        <link rel="apple-touch-icon" href="/fav.png" />
+        <link rel="icon" href="/images/fav.png" /> {/* Corrected path */}
+        <link rel="apple-touch-icon" href="/images/fav.png" /> {/* Corrected path */}
       </head>
       <body>
         <ClientBody>{children}</ClientBody>
