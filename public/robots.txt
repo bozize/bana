@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://serenigo.com
+
+# Sitemaps
+Sitemap: https://serenigo.com/sitemap.xml
