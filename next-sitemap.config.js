@@ -1,10 +1,16 @@
-/** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: "https://serenigo.com", // Replace with your actual domain
-    generateRobotsTxt: true, // Generates robots.txt file
-    sitemapSize: 5000, // Limit for sitemap splitting
-    exclude: ["/admin", "/dashboard"], // Exclude private routes if needed
-    changefreq: "weekly", // Default change frequency
-    priority: 0.7, // Default priority
-  };
+    siteUrl: 'https://serenigo.com', // Replace with your actual website URL
+    generateRobotsTxt: true, // (Optional) Generate a robots.txt file
+    changefreq: 'weekly', // How often the pages change
+    priority: 0.7, // Default priority for the pages
+    exclude: ['/admin', '/login'], // (Optional) Exclude any specific paths you don't want in the sitemap
+    transform: async (config, path) => {
+      return {
+        loc: path, // The URL of the page
+        changefreq: 'weekly', // Customize this based on your page content
+        priority: 0.7, // Adjust based on the importance of the page
+        lastmod: new Date().toISOString(), // Add last modified date
+      };
+    },
+  }
   
