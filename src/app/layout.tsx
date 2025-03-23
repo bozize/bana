@@ -23,6 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/fav.png" /> {/* Corrected path */}
         <link rel="apple-touch-icon" href="/images/fav.png" /> {/* Corrected path */}
+        <meta name="google-site-verification" content="VdquBXQmff25i9UP5LVpgai-IUbiMQUh6olrPpaIJxQ" />
       </head>
       <body>
         <ClientBody>{children}</ClientBody>
