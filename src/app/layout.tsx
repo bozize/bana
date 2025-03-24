@@ -30,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="google-site-verification" content="VdquBXQmff25i9UP5LVpgai-IUbiMQUh6olrPpaIJxQ" />
+        <meta name="apple-mobile-web-app-title" content="SereniGo" />
         {/* No need for manual <link> tags; metadata handles it */}
       </head>
       <body>
