@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: 'https://serenigo.com', // Replace with your actual website URL
+    siteUrl: 'https://www.serenigo.com', // Replace with your actual website URL
     generateRobotsTxt: true, // (Optional) Generate a robots.txt file
     changefreq: 'weekly', // How often the pages change
     priority: 0.7, // Default priority for the pages
