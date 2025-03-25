@@ -9,18 +9,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico" }, // Classic favicon
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, // Added for Google
+      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" }, // Renamed to match file
+      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" }, // Renamed to match file
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }, // iOS touch icon
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  manifest: "/site.webmanifest", // Link to the web manifest
+  manifest: "/site.webmanifest",
 };
-
 
 export default function RootLayout({
   children,
@@ -33,11 +31,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="VdquBXQmff25i9UP5LVpgai-IUbiMQUh6olrPpaIJxQ" />
         <meta name="apple-mobile-web-app-title" content="SereniGo" />
         <link rel="canonical" href="https://www.serenigo.com" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-        {/* No need for manual <link> tags; metadata handles it */}
+        {/* Removed manual favicon tags to avoid conflicts */}
       </head>
       <body>
         <ClientBody>{children}</ClientBody>
@@ -45,6 +39,7 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
 
