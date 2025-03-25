@@ -33,6 +33,10 @@ export default function RootLayout({
         <meta name="google-site-verification" content="VdquBXQmff25i9UP5LVpgai-IUbiMQUh6olrPpaIJxQ" />
         <meta name="apple-mobile-web-app-title" content="SereniGo" />
         <link rel="canonical" href="https://www.serenigo.com" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
         {/* No need for manual <link> tags; metadata handles it */}
       </head>
       <body>
