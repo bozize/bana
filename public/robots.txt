@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://serenigo.com
+Host: https://www.serenigo.com
 
 # Sitemaps
-Sitemap: https://serenigo.com/sitemap.xml
+Sitemap: https://www.serenigo.com/sitemap.xml
