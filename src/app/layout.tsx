@@ -8,16 +8,15 @@ export const metadata: Metadata = {
     "Discover breathtaking safaris and unforgettable tours in Kenya and Tanzania with SereniGo. Plan your adventure, explore top-rated national parks, book guided tours, and experience African wildlife like never before.",
   icons: {
     icon: [
-      { url: "/favicon.ico" }, // Classic favicon
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, // Added for Google
-      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" }, // Renamed to match file
-      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" }, // Renamed to match file
+      { url: "/favicon.ico" }, // Matches favicon.ico (15 KB)
+      { url: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" }, // Matches web-app-manifest-192x192.png (5 KB)
+      { url: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" }, // Matches web-app-manifest-512x512.png (16 KB)
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }, // Matches apple-icon.png (5 KB)
     ],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json", // Updated to match the file name in the image (manifest.json, 1 KB)
 };
 
 export default function RootLayout({
@@ -39,7 +38,6 @@ export default function RootLayout({
     </html>
   );
 }
-
 
 
 
