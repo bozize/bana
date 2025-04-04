@@ -15,23 +15,55 @@ export default function Header() {
 
           {/* Navigation Links (Now in place of Desktop Nav) */}
           <nav className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-700 font-medium">
-              <Link href="/hotels">Hotels</Link>
+            <Button variant="ghost" className="text-black font-medium">
+              <a
+                href="https://trip.tp.st/CL8wSZ5f"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Hotels
+              </a>
             </Button>
-            <Button variant="ghost" className="text-gray-700 font-medium">
-              <Link href="/things-to-do">Things to Do</Link>
+            <Button variant="ghost" className="text-black font-medium">
+              <a
+                href="https://www.serenigo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Things To Do
+              </a>
             </Button>
-            <Button variant="ghost" className="text-gray-700 font-medium">
-              <Link href="/flights">Flights</Link>
+            <Button variant="ghost" className="text-black font-medium">
+              <a
+                href="https://wayaway.tp.st/HCPQCDmD"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Flights
+              </a>
             </Button>
-            <Button variant="ghost" className="text-gray-700 font-medium">
-              <Link href="/vacation-rentals">Vacation Rentals</Link>
+            <Button variant="ghost" className="text-black font-medium">
+              <a
+                href="https://kiwitaxi.tp.st/rHeZj7gT"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Airport transfers 
+              </a>
             </Button>
-            <Button variant="ghost" className="text-gray-700 font-medium">
-              <Link href="/rental-cars">Rental Cars</Link>
+            <Button variant="ghost" className="text-black font-medium">
+              <a
+                href="https://trip.tp.st/UvjvZn9Q"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rental Cars
+              </a>
             </Button>
-            <Button variant="ghost" className="text-gray-700 font-medium">
-              <Link href="/forums">Visa Help</Link>
+            <Button variant="ghost" className="text-black font-medium">
+              <Link href="/forums">
+                Visa Help
+              </Link>
             </Button>
           </nav>
 

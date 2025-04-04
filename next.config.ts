@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       "source.unsplash.com",
       "images.unsplash.com",
       "web-assets.same.dev",
+      "media-cdn.tripadvisor.com",
+      "hare-media-cdn.tripadvisor.com", // ✅ Added the specific hostname from the error
     ],
     remotePatterns: [
       {
@@ -24,6 +26,24 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "web-assets.same.dev",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "media-cdn.tripadvisor.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "hare-media-cdn.tripadvisor.com", // ✅ Added the specific hostname from the error
         port: "",
         pathname: "/**",
       },
