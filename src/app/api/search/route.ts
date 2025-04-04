@@ -25,9 +25,45 @@ interface Product {
   destinations: { ref: string; primary: boolean }[];
 }
 
+// Define interfaces for Viator API response
+interface ImageVariant {
+  height: number;
+  width: number;
+  url: string;
+}
+
+interface Image {
+  isCover: boolean;
+  variants: ImageVariant[];
+}
+
+interface Reviews {
+  combinedAverageRating: number;
+  totalReviews: number;
+}
+
+interface PricingSummary {
+  fromPrice?: number;
+  fromPriceBeforeDiscount?: number;
+}
+
+interface ViatorProduct {
+  productCode: string;
+  title: string;
+  description: string;
+  images: Image[];
+  reviews?: Reviews;
+  pricing?: { summary: PricingSummary };
+  productUrl: string;
+  duration?: { fixedDurationInMinutes: number };
+  tags?: number[];
+  flags?: string[];
+  destinations?: { ref: string; primary: boolean }[];
+}
+
 interface ViatorResponse {
   products: {
-    results: any[];
+    results: ViatorProduct[];
   };
 }
 
@@ -44,13 +80,13 @@ const fetchWithTimeout = async (url: string, options: RequestInit, timeout = 800
   return response;
 };
 
-const processImages = async (images: any[]) => {
-  const coverImage = images.find((img: any) => img.isCover) || images[0];
+const processImages = async (images: Image[]) => {
+  const coverImage = images.find((img) => img.isCover) || images[0];
   if (!coverImage) return { thumbnailURL: 'https://placehold.co/200x150?text=No+Image', thumbnailHiResURL: undefined };
 
   const [thumbnailURL, thumbnailHiResURL] = await Promise.all([
-    coverImage.variants.find((v: any) => v.height === 200)?.url || 'https://placehold.co/200x150?text=No+Image',
-    coverImage.variants.find((v: any) => v.height >= 400)?.url
+    coverImage.variants.find((v) => v.height === 200)?.url || 'https://placehold.co/200x150?text=No+Image',
+    coverImage.variants.find((v) => v.height >= 400)?.url
   ]);
 
   return { thumbnailURL, thumbnailHiResURL };
@@ -98,7 +134,7 @@ export async function GET(request: Request): Promise<NextResponse> {
 
     const viatorData: ViatorResponse = await response.json();
     
-    const toursPromises = viatorData.products.results.map(async (tour) => {
+    const toursPromises = viatorData.products.results.map(async (tour: ViatorProduct) => {
       const { thumbnailURL, thumbnailHiResURL } = await processImages(tour.images);
 
       return {

@@ -3,12 +3,21 @@ import ExperienceCard from '../components/ExperienceCard';
 interface Product {
   productCode: string;
   title: string;
+  description: string;
   thumbnailHiResURL?: string;
   thumbnailURL: string;
   rating: number;
   reviewCount: number;
-  pricing: { summary: { fromPriceFormatted: string } };
+  pricing: {
+    summary: {
+      fromPriceFormatted: string;
+      fromPrice: number; // Added required property
+      fromPriceBeforeDiscount: number; // Added required property
+    };
+  };
   webURL: string;
+  duration?: { fixedDurationInMinutes: number }; // Added from ExperienceCard
+  flags?: string[]; // Added from ExperienceCard
 }
 
 async function fetchSearchResults(query: string): Promise<Product[]> {
@@ -21,7 +30,7 @@ async function fetchSearchResults(query: string): Promise<Product[]> {
 }
 
 export default async function Search({ searchParams }: { searchParams: Promise<{ query?: string }> }) {
-  const resolvedSearchParams = await searchParams; // Await the Promise
+  const resolvedSearchParams = await searchParams;
   const query = resolvedSearchParams.query || '';
   let searchResults: Product[] = [];
   let error: string | null = null;
