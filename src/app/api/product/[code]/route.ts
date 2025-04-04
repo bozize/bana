@@ -1,8 +1,6 @@
 import NodeCache from 'node-cache';
 import { NextResponse } from 'next/server';
 
-const cache = new NodeCache({ stdTTL: 3600 });
-
 // Define interfaces for the data structures
 interface Location {
   provider?: string;
@@ -70,6 +68,8 @@ interface Image {
   mediumVariant?: ImageVariant;
 }
 
+const cache = new NodeCache({ stdTTL: 3600 });
+
 async function fetchLocations(locationRefs: string[]): Promise<Location[]> {
   try {
     const response = await fetch('https://api.viator.com/partner/locations/bulk', {
@@ -122,11 +122,12 @@ function extractLocationRefs(productData: ProductData): string[] {
   return Array.from(locationRefs);
 }
 
+// Updated GET handler with correct typing
 export async function GET(
-  _request: Request,
-  { params }: { params: { code: string } }
+  request: Request,
+  context: { params: { code: string } } // Use context instead of direct destructuring
 ): Promise<NextResponse> {
-  const { code } = params;
+  const { code } = context.params; // Access params from context
   const cacheKey = `product_${code}`;
 
   const cachedProduct = cache.get<ProductData>(cacheKey);
