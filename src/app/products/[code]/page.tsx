@@ -470,9 +470,9 @@ export default async function ProductDetails({ params }: { params: { code: strin
                     })}
                   </ul>
                   
-                  {(day.foodAndDrinks?.length > 0 || day.accommodations?.length > 0) && (
+                  {(day.foodAndDrinks?.length ?? 0) > 0 || (day.accommodations?.length ?? 0) > 0 ? (
                     <div className="mt-4 pt-4 border-t border-gray-100">
-                      {day.foodAndDrinks?.length > 0 && (
+                      {day.foodAndDrinks && day.foodAndDrinks.length > 0 && (
                         <div className="flex items-start gap-2 mb-2">
                           <Utensils className="w-4 h-4 text-teal-600 mt-0.5" />
                           <div>
@@ -483,7 +483,7 @@ export default async function ProductDetails({ params }: { params: { code: strin
                           </div>
                         </div>
                       )}
-                      {day.accommodations?.length > 0 && (
+                      {day.accommodations && day.accommodations.length > 0 && (
                         <div className="flex items-start gap-2">
                           <Hotel className="w-4 h-4 text-teal-600 mt-0.5" />
                           <div>
@@ -495,7 +495,7 @@ export default async function ProductDetails({ params }: { params: { code: strin
                         </div>
                       )}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               </div>
             ))}

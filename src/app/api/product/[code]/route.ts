@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 
 const cache = new NodeCache({ stdTTL: 3600 });
 
+// Define interfaces for the data structures
 interface Location {
   provider?: string;
   reference: string;
@@ -19,6 +20,54 @@ interface Location {
     latitude: number;
     longitude: number;
   };
+}
+
+interface ProductLocation {
+  ref: string;
+}
+
+interface PickupLocation {
+  location?: ProductLocation;
+}
+
+interface ItineraryItem {
+  pointOfInterestLocation?: {
+    location?: ProductLocation;
+  };
+}
+
+interface Day {
+  items?: ItineraryItem[];
+}
+
+interface ProductData {
+  logistics?: {
+    travelerPickup?: {
+      locations: PickupLocation[];
+    };
+  };
+  itinerary?: {
+    days: Day[];
+  };
+  images?: Image[];
+  pricingInfo?: unknown; // You might want to define a more specific type here
+  locations?: Location[];
+  thumbnailURL?: string;
+  thumbnailHiResURL?: string;
+}
+
+interface ImageVariant {
+  width: number;
+  height: number;
+  url: string;
+}
+
+interface Image {
+  variants?: ImageVariant[];
+  imageSource?: string;
+  isCover?: boolean;
+  bestVariant?: ImageVariant;
+  mediumVariant?: ImageVariant;
 }
 
 async function fetchLocations(locationRefs: string[]): Promise<Location[]> {
@@ -39,7 +88,7 @@ async function fetchLocations(locationRefs: string[]): Promise<Location[]> {
       throw new Error(`Location fetch failed: ${errorText}`);
     }
 
-    const data = await response.json();
+    const data = await response.json() as { locations: Location[] };
     return data.locations || [];
   } catch (error) {
     console.error('Error fetching locations:', error);
@@ -47,12 +96,12 @@ async function fetchLocations(locationRefs: string[]): Promise<Location[]> {
   }
 }
 
-function extractLocationRefs(productData: any): string[] {
+function extractLocationRefs(productData: ProductData): string[] {
   const locationRefs = new Set<string>();
 
   // Extract from pickup locations
   if (productData.logistics?.travelerPickup?.locations) {
-    productData.logistics.travelerPickup.locations.forEach((loc: any) => {
+    productData.logistics.travelerPickup.locations.forEach((loc: PickupLocation) => {
       if (loc.location?.ref) {
         locationRefs.add(loc.location.ref);
       }
@@ -61,8 +110,8 @@ function extractLocationRefs(productData: any): string[] {
 
   // Extract from itinerary points
   if (productData.itinerary?.days) {
-    productData.itinerary.days.forEach((day: any) => {
-      day.items?.forEach((item: any) => {
+    productData.itinerary.days.forEach((day: Day) => {
+      day.items?.forEach((item: ItineraryItem) => {
         if (item.pointOfInterestLocation?.location?.ref) {
           locationRefs.add(item.pointOfInterestLocation.location.ref);
         }
@@ -80,7 +129,7 @@ export async function GET(
   const { code } = params;
   const cacheKey = `product_${code}`;
 
-  const cachedProduct = cache.get(cacheKey);
+  const cachedProduct = cache.get<ProductData>(cacheKey);
   if (cachedProduct) {
     return NextResponse.json(cachedProduct);
   }
@@ -109,7 +158,7 @@ export async function GET(
       throw new Error(`Product fetch failed: ${errorText}`);
     }
 
-    const productData = await productResponse.json();
+    const productData: ProductData = await productResponse.json();
 
     // Fetch availability
     console.log('Fetching availability for:', code);
@@ -136,7 +185,7 @@ export async function GET(
 
     if (productData.images && productData.images.length > 0) {
       // Process all images to find the best variants
-      productData.images = productData.images.map((img: any) => {
+      productData.images = productData.images.map((img: Image) => {
         if (img.variants && img.variants.length > 0) {
           // Select the highest resolution variant (sorted by area)
           const sortedVariants = [...img.variants].sort((a, b) => 
@@ -153,7 +202,7 @@ export async function GET(
       });
     
       // Set cover image URLs
-      const coverImage = productData.images.find((img: any) => img.isCover) || productData.images[0];
+      const coverImage = productData.images.find((img: Image) => img.isCover) || productData.images[0];
       productData.thumbnailURL = coverImage.bestVariant?.url || coverImage.imageSource;
       productData.thumbnailHiResURL = coverImage.bestVariant?.url || coverImage.imageSource;
     }
