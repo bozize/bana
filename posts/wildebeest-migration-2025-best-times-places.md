@@ -1,5 +1,5 @@
 ---
-title: Wildebeest Migration 2025: Best Times and Places to Witness the Spectacle
+title: "Wildebeest Migration 2025: Best Times and Places to Witness the Spectacle"
 date: 2025-04-22
 slug: wildebeest-migration-2025-guide
 description: Discover the best times and places to experience the Great Wildebeest Migration in 2025, with practical tips for an unforgettable safari in Kenya and Tanzania.
