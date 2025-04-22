@@ -96,17 +96,3 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap');
 
-/* Custom Prose styles for Markdown content */
-.prose-safariGreen {
-  @apply text-gray-800;
-}
-
-.prose-safariGreen h1,
-.prose-safariGreen h2,
-.prose-safariGreen h3 {
-  @apply font-playfair text-safariBrown;
-}
-
-.prose-safariGreen a {
-  @apply text-safariGreen underline hover:text-safariGreen/80;
-}
