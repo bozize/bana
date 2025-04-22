@@ -1,33 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es5", // Good choice for broad compatibility
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "es2020", // Updated for modern browsers; revert to "es5" if needed
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true, // Helps avoid type conflicts in dependencies
-    "strict": true, // Good for catching errors, but can be relaxed if too restrictive
-    "noEmit": true, // Required for Next.js as it handles emission
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext", // Matches Next.js default
-    "moduleResolution": "bundler", // Recommended for Next.js 13+
+    "module": "esnext",
+    "moduleResolution": "node", // Changed for better compatibility with fs/path
     "resolveJsonModule": true,
-    "isolatedModules": true, // Required for Next.js
-    "jsx": "preserve", // Required for Next.js
-    "incremental": true, // Speeds up compilation
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    // Add these for better Next.js integration
+  "@/*": ["./src/*"]
+},
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "."
   },
@@ -35,9 +28,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts" // Essential for Next.js type generation
-, "src/app/products/[code]/page.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    ".next/types/**/*.ts",
+    "src/app/products/[code]/page.jsx",
+    "src/app/blog/[slug]/page.jsx",
+  ],
+  "exclude": ["node_modules"]
 }
