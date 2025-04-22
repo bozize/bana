@@ -16,6 +16,8 @@ export default {
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
+        safariBrown: '#4A3728',
+        safariGreen: '#2E7D32',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
@@ -79,6 +81,7 @@ export default {
       },
     },
   },
+  
   plugins: [tailwindcssAnimate],
 } satisfies Config;
 

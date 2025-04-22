@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       "web-assets.same.dev",
       "media-cdn.tripadvisor.com",
       "hare-media-cdn.tripadvisor.com", // ✅ Added the specific hostname from the error
+      'images.pexels.com',
     ],
     remotePatterns: [
       {

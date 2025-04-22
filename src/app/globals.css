@@ -1,10 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-
 
 @font-face {
   font-family: 'TripSans';
@@ -45,6 +43,10 @@
     --tripadvisor-white: #ffffff;
     --tripadvisor-ocean-blue: #5bb4c9;
     --tripadvisor-dark-green: #00aa6c;
+
+    /* Custom Safari Colors */
+    --safariBrown: #4A3728;
+    --safariGreen: #2E7D32;
   }
 
   .dark {
@@ -68,12 +70,11 @@
     --input: 12 6.5% 15.1%;
     --ring: 142.4 71.8% 29.2%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'TripSans', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
@@ -98,4 +99,81 @@
   }
 }
 
+/* Base prose styles for Markdown content */
+.prose {
+  @apply text-gray-800 leading-relaxed max-w-none;
+}
+
+/* Headings */
+.prose h1 {
+  @apply font-playfair text-4xl md:text-5xl text-safariBrown font-bold mt-12 mb-6;
+}
+
+.prose h2 {
+  @apply font-playfair text-2xl md:text-3xl text-safariGreen font-semibold mt-10 mb-5 border-b border-safariGreen/20 pb-2;
+}
+
+.prose h3 {
+  @apply font-sans text-xl md:text-2xl text-safariBrown font-medium mt-8 mb-4;
+}
+
+/* Paragraphs */
+.prose p {
+  @apply mt-4 mb-6 text-lg leading-7;
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  @apply mt-4 mb-6 pl-6;
+}
+
+.prose li {
+  @apply mb-2 text-lg;
+}
+
+/* Links */
+.prose a {
+  @apply text-safariGreen underline decoration-2 hover:text-safariBrown transition-colors duration-200;
+}
+
+/* Image and caption */
+.prose img {
+  @apply rounded-lg shadow-md my-6 max-w-full h-auto;
+}
+
+.prose figcaption {
+  @apply text-sm text-gray-600 mt-2 mb-6 text-center italic;
+}
+
+/* Table */
+.prose table {
+  @apply w-full border-collapse my-8 rounded-lg shadow-sm overflow-x-auto block;
+}
+
+.prose th {
+  @apply bg-safariGreen text-white font-semibold px-6 py-4 text-left text-sm uppercase tracking-wide;
+}
+
+.prose td {
+  @apply border-t border-gray-200 px-6 py-4 text-gray-800 text-base;
+}
+
+.prose tr:nth-child(even) {
+  @apply bg-gray-50;
+}
+
+.prose tr:hover {
+  @apply bg-gray-100 transition-colors;
+}
+
+/* Blockquotes for key recommendations and tips */
+.prose blockquote {
+  @apply border-l-4 border-safariGreen bg-gray-50 pl-4 pr-6 py-4 my-6 italic text-gray-700;
+}
+
+/* Horizontal rule for section breaks */
+.prose hr {
+  @apply border-t-2 border-safariGreen/20 my-12;
+}
 

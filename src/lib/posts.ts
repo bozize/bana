@@ -1,8 +1,6 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -12,51 +10,62 @@ export interface Post {
   date: string;
   description: string;
   tags?: string[];
-  contentHtml?: string;
+  content: string; // Raw Markdown content for react-markdown
 }
 
-export function getAllPostSlugs() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => ({
-    params: {
-      slug: fileName.replace(/\.md$/, ''),
-    },
-  }));
+export async function getAllPostSlugs() {
+  try {
+    const fileNames = await fs.readdir(postsDirectory);
+    const mdFiles = fileNames.filter((fileName) => fileName.endsWith('.md'));
+    console.log('Found Markdown files:', mdFiles); // Debug log
+    return mdFiles.map((fileName) => ({
+      params: {
+        slug: fileName.replace(/\.md$/, ''),
+      },
+    }));
+  } catch (error) {
+    console.error('Error reading posts directory:', error);
+    return [];
+  }
 }
 
 export async function getPostData(slug: string): Promise<Post> {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  
-  // Parse frontmatter and content
-  const { data, content } = matter(fileContents);
-
-  // Convert Markdown to HTML
-  const processedContent = await remark()
-    .use(html)
-    .process(content);
-  const contentHtml = processedContent.toString();
-
-  return {
-    slug,
-    ...data,
-    contentHtml,
-  } as Post;
-}
-
-export function getAllPosts(): Post[] {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames.map((fileName) => {
-    const slug = fileName.replace(/\.md$/, '');
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data } = matter(fileContents);
+  try {
+    const fileContents = await fs.readFile(fullPath, 'utf8');
+    const { data, content } = matter(fileContents);
     return {
       slug,
+      content, // Return raw Markdown content
       ...data,
     } as Post;
-  });
+  } catch (error) {
+    console.error(`Error processing post ${slug}:`, error);
+    throw error;
+  }
+}
 
-  // Sort posts by date (newest first)
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+export async function getAllPosts(): Promise<Post[]> {
+  try {
+    const fileNames = await fs.readdir(postsDirectory);
+    const mdFiles = fileNames.filter((fileName) => fileName.endsWith('.md'));
+    console.log('Posts found:', mdFiles); // Debug log
+    const posts = await Promise.all(
+      mdFiles.map(async (fileName) => {
+        const slug = fileName.replace(/\.md$/, '');
+        const fullPath = path.join(postsDirectory, fileName);
+        const fileContents = await fs.readFile(fullPath, 'utf8');
+        const { data } = matter(fileContents);
+        return {
+          slug,
+          ...data,
+        } as Post;
+      })
+    );
+    console.log('Generated posts:', posts.map((post) => post.slug)); // Debug log
+    return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch (error) {
+    console.error('Error generating posts:', error);
+    return [];
+  }
 }
