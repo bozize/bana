@@ -13,7 +13,7 @@ export default function Header() {
             <Image src={vectorImage} alt="SereniGo" width={110} height={110} />
           </Link>
 
-          {/* Navigation Links (Now in place of Desktop Nav) */}
+          {/* Navigation Links */}
           <nav className="hidden md:flex items-center space-x-4">
             <Button variant="ghost" className="text-black font-medium">
               <a
@@ -53,7 +53,7 @@ export default function Header() {
             </Button>
             <Button variant="ghost" className="text-black font-medium">
               <a
-                href="https://trip.tp.st/UvjvZn9Q"
+                href="https://kiwitaxi.tp.st/rHeZj7gT"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -61,24 +61,17 @@ export default function Header() {
               </a>
             </Button>
             <Button variant="ghost" className="text-black font-medium">
-              <Link href="/forums">
-                Visa Help
-              </Link>
+              <Link href="/forums">Visa Help</Link>
             </Button>
           </nav>
 
-          {/* Right Actions */}
-          <div className="flex items-center space-x-2">
-            <Button variant="ghost" className="text-gray-700 font-medium hidden md:inline-flex">
-              USD
-            </Button>
-            <Button className="bg-black text-white hover:bg-gray-800 rounded-full">
-              Sign in
-            </Button>
-          </div>
+          {/* Spacer to maintain alignment after removing Sign In */}
+          <div className="w-[110px]" />
         </div>
       </div>
     </header>
   );
 }
+
+
 

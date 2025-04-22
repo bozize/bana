@@ -15,17 +15,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Explore Section */}
-          <div>
-            <h3 className="font-bold text-sm mb-4">Explore</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="text-gray-600 hover:text-black">Write a review</Link></li>
-              
-              <li><Link href="#" className="text-gray-600 hover:text-black">Community</Link></li>
-              <li><Link href="#" className="text-gray-600 hover:text-black">Help</Link></li>
-              
-            </ul>
-          </div>
+         
 
           
 

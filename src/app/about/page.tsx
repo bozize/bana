@@ -23,7 +23,7 @@ export default function AboutPage() {
             Your Trusted Safari Experts in <span className="text-amber-400">East Africa</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            Crafting unforgettable safari experiences in Kenya and Tanzania since 2010
+            Crafting unforgettable safari experiences in Kenya and Tanzania
           </p>
         </div>
       </section>
@@ -63,99 +63,118 @@ export default function AboutPage() {
 </section>
 
 
-      {/* Our Services Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Comprehensive <span className="text-green-600">Travel Services</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We offer end-to-end solutions for your East African adventure
-            </p>
-          </div>
+<section className="py-16 md:py-24 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-16">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+        Comprehensive <span className="text-green-600">Travel Services</span>
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        We offer end-to-end solutions for your East African adventure
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Globe className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Tailored Safaris</h3>
-              <p className="text-gray-600 mb-6">
-                Custom-designed Kenya and Tanzania safari packages including luxury lodges, private guides, and exclusive wildlife experiences.
-              </p>
-              <Link href="/safaris" className="text-green-600 font-medium hover:underline">
-                Explore Safaris →
-              </Link>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Plane className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Flight Bookings</h3>
-              <p className="text-gray-600 mb-6">
-                Competitive international and domestic flight options to Nairobi, Kilimanjaro, and Zanzibar with our airline partners.
-              </p>
-              <Link href="/flights" className="text-blue-600 font-medium hover:underline">
-                Find Flights →
-              </Link>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Hotel className="w-8 h-8 text-amber-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Hotel Reservations</h3>
-              <p className="text-gray-600 mb-6">
-                Curated selection of hotels, from Nairobi business hotels to Zanzibar beach resorts and safari lodges.
-              </p>
-              <Link href="/hotels" className="text-amber-600 font-medium hover:underline">
-                Browse Hotels →
-              </Link>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <CheckCircle className="w-8 h-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Visa Assistance</h3>
-              <p className="text-gray-600 mb-6">
-                Expert guidance for Kenya and Tanzania visa applications, including e-visa processing and requirements.
-              </p>
-              <Link href="/visas" className="text-purple-600 font-medium hover:underline">
-                Visa Info →
-              </Link>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Car className="w-8 h-8 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">Car Rentals</h3>
-              <p className="text-gray-600 mb-6">
-                4x4 safari vehicles and city cars available for hire in major Kenya and Tanzania locations with full insurance.
-              </p>
-              <Link href="/rentals" className="text-red-600 font-medium hover:underline">
-                View Vehicles →
-              </Link>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-              <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <Headset className="w-8 h-8 text-teal-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-4 text-gray-800">24/7 Support</h3>
-              <p className="text-gray-600 mb-6">
-                Dedicated local support team available round-the-clock during your East African travels.
-              </p>
-              <Link href="/contact" className="text-teal-600 font-medium hover:underline">
-                Contact Us →
-              </Link>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <Globe className="w-8 h-8 text-green-600" />
         </div>
-      </section>
+        <h3 className="text-xl font-bold mb-4 text-gray-800">Tailored Safaris</h3>
+        <p className="text-gray-600 mb-6">
+          Custom-designed Kenya and Tanzania safari packages including luxury lodges, private guides, and exclusive wildlife experiences.
+        </p>
+        <a
+          href="https://www.serenigo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green-600 font-medium hover:underline"
+        >
+          Explore Safaris →
+        </a>
+      </div>
+
+      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <Plane className="w-8 h-8 text-blue-600" />
+        </div>
+        <h3 className="text-xl font-bold mb-4 text-gray-800">Flight Bookings</h3>
+        <p className="text-gray-600 mb-6">
+          Competitive international and domestic flight options to Nairobi, Kilimanjaro, and Zanzibar with our airline partners.
+        </p>
+        <a
+          href="https://wayaway.tp.st/HCPQCDmD"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 font-medium hover:underline"
+        >
+          Find Flights →
+        </a>
+      </div>
+
+      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <Hotel className="w-8 h-8 text-amber-600" />
+        </div>
+        <h3 className="text-xl font-bold mb-4 text-gray-800">Hotel Reservations</h3>
+        <p className="text-gray-600 mb-6">
+          Curated selection of hotels, from Nairobi business hotels to Zanzibar beach resorts and safari lodges.
+        </p>
+        <a
+          href="https://trip.tp.st/CL8wSZ5f"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-amber-600 font-medium hover:underline"
+        >
+          Browse Hotels →
+        </a>
+      </div>
+
+      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <CheckCircle className="w-8 h-8 text-purple-600" />
+        </div>
+        <h3 className="text-xl font-bold mb-4 text-gray-800">Visa Assistance</h3>
+        <p className="text-gray-600 mb-6">
+          Expert guidance for Kenya and Tanzania visa applications, including e-visa processing and requirements.
+        </p>
+        <Link href="/forums" className="text-purple-600 font-medium hover:underline">
+          Visa Info →
+        </Link>
+      </div>
+
+      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <Car className="w-8 h-8 text-red-600" />
+        </div>
+        <h3 className="text-xl font-bold mb-4 text-gray-800">Car Rentals</h3>
+        <p className="text-gray-600 mb-6">
+          4x4 safari vehicles and city cars available for hire in major Kenya and Tanzania locations with full insurance.
+        </p>
+        <a
+          href="https://trip.tp.st/UvjvZn9Q"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-red-600 font-medium hover:underline"
+        >
+          View Vehicles →
+        </a>
+      </div>
+
+      <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+        <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+          <Headset className="w-8 h-8 text-teal-600" />
+        </div>
+        <h3 className="text-xl font-bold mb-4 text-gray-800">24/7 Support</h3>
+        <p className="text-gray-600 mb-6">
+          Dedicated local support team available round-the-clock during your East African travels.
+        </p>
+        <Link href="/contact" className="text-teal-600 font-medium hover:underline">
+          Contact Us →
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Why Choose Us Section */}
       <section className="py-16 md:py-24 bg-black text-white">
@@ -205,10 +224,10 @@ export default function AboutPage() {
             Contact our safari specialists to start planning your perfect Kenya and Tanzania itinerary
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg">
+            <Button asChild className="bg-black hover:bg-gray-700 text-white px-8 py-6 text-lg">
               <Link href="/contact">Get a Free Safari Quote</Link>
             </Button>
-            <Button asChild variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-6 text-lg">
+            <Button asChild variant="outline" className="border-gray-600 text-black hover:bg-green-50 px-8 py-6 text-lg">
               <Link href="tel:+254700000000">Call Our Experts</Link>
             </Button>
           </div>

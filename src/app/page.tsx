@@ -103,7 +103,7 @@ export default async function Home() {
   </a>
 
   <a
-    href="https://www.example.com/things-to-do"
+    href="https://www.serenigo.com/"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white font-medium hover:bg-white/20 rounded-full transition-colors px-4 py-2 inline-flex items-center space-x-2"
@@ -113,7 +113,7 @@ export default async function Home() {
   </a>
 
   <a
-    href="https://www.example.com/flights"
+    href="https://wayaway.tp.st/HCPQCDmD"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white font-medium hover:bg-white/20 rounded-full transition-colors px-4 py-2 inline-flex items-center space-x-2"
@@ -123,17 +123,17 @@ export default async function Home() {
   </a>
 
   <a
-    href="https://www.example.com/vacation-rentals"
+    href="https://kiwitaxi.tp.st/rHeZj7gT"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white font-medium hover:bg-white/20 rounded-full transition-colors px-4 py-2 inline-flex items-center space-x-2"
   >
-    <House className="w-5 h-5" />
-    <span>Vacation Rentals</span>
+    <Car className="w-5 h-5" />
+    <span> Airport Transfers</span>
   </a>
 
   <a
-    href="https://www.example.com/rental-cars"
+    href="https://kiwitaxi.tp.st/rHeZj7gT"
     target="_blank"
     rel="noopener noreferrer"
     className="text-white font-medium hover:bg-white/20 rounded-full transition-colors px-4 py-2 inline-flex items-center space-x-2"
